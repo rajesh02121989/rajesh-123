@@ -24,7 +24,7 @@ rg_location = "west us"
 
 
 module "vnet" {
-depends_on = [ module.rg ]
+depends_on = [ module.rg1 ]
 source = "../../modules/Azurerm_virtual_network"
 vnet_name = "vnet-dev1"
 vnet_location = "west us"
@@ -34,7 +34,7 @@ address_space = ["10.0.0.0/16"]
 
 
 module "subnet"{
-    depends_on = [ module.rg,module.vnet ]
+    depends_on = [ module.rg1, module.vnet ]
 source ="../../modules/Azurerm_subnet"
 subnet_name = "subnet-dev1"
 rg_name = "new_dev1"
